@@ -20,7 +20,7 @@ const BarChartComponent = ({selectedMonth}) => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3009/category?month=${selectedMonth?.month}`);
+        const response = await axios.get(`https://products-wsdu.onrender.com/category?month=${selectedMonth?.month}`);
         setData(response?.data);
       } catch (error) {
         console.error('Error fetching data: ', error);

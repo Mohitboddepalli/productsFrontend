@@ -8,7 +8,7 @@ export default function BasicPie({ selectedMonth }) {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3009/itemsCount?month=${selectedMonth?.month}`);
+        const response = await axios.get(`https://products-wsdu.onrender.com/itemsCount?month=${selectedMonth?.month}`);
         setData(response?.data);
       } catch (error) {
         console.error('Error fetching data: ', error);

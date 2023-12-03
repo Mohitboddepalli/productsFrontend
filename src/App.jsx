@@ -4,7 +4,6 @@ import BasicTable from './components/BasicTable'
 import axios from 'axios';
 import BasicPie from './components/pie';
 import BarChartComponent from './components/bar';
-import { Card } from '@mui/material';
 import CardComponent from './components/card';
 function App() {
   const [data,setData]=useState([])
@@ -13,7 +12,7 @@ function App() {
   const [totalProducts,setTotalProducts]=useState(0)
   const [searchParameter,setSearchParameter]=useState("")
   const getProducts=(offset)=>{
-    axios.get(`http://localhost:3009/allTransactions?month=${selectedMonth}&limit=${page+10}&offset=${page}&search_q=${searchParameter}`)
+    axios.get(`https://products-wsdu.onrender.com/allTransactions?month=${selectedMonth}&limit=${page+10}&offset=${page}&search_q=${searchParameter}`)
     .then(response => {
         setData(response?.data?.rows)
         setTotalProducts(response?.data?.total_pages?.count)
