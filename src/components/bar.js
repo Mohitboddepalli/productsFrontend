@@ -32,7 +32,7 @@ const BarChartComponent = ({selectedMonth}) => {
     fetchData();
   },[selectedMonth]);
   useEffect(()=>{
-    if(data.length!=0)
+    if(data.length!==0)
     {
       let ap=Object.values(data[0])
         data1?.map((ele,index)=>
