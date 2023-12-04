@@ -6,12 +6,10 @@ import axios from 'axios';
 
 export default function CardComponent({selectedMonth}) {
     const [data, setData] = React.useState([]);
-    console.log(selectedMonth)
     React.useEffect(() => {
       const fetchData = async () => {
         try {
           const response = await axios.get(`https://products-wsdu.onrender.com/statastics?month=${selectedMonth}`);
-          console.log(response);
           setData(response?.data);
           console.log("fghjk",response?.data[0])
         } catch (error) {

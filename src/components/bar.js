@@ -16,11 +16,13 @@ const data1 = [
 
 const BarChartComponent = ({selectedMonth}) => {
     const [data, setData] = React.useState([]);
-
+    let ap;
   React.useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`https://products-wsdu.onrender.com/category?month=${selectedMonth?.month}`);
+
+        
         setData(response?.data);
       } catch (error) {
         console.error('Error fetching data: ', error);
@@ -28,24 +30,25 @@ const BarChartComponent = ({selectedMonth}) => {
     };
 
     fetchData();
-  },[]);
+  },[selectedMonth]);
   useEffect(()=>{
     if(data.length!=0)
     {
       let ap=Object.values(data[0])
-        data1?.map((ele,index)=>{
+        data1?.map((ele,index)=>
             ele.count=ap[index]
-        })
+        )
+        setData(data1);
     }
   },[data])
 
   return (
-    <Paper elevation={3} style={{ padding: 16 ,marginTop:"40px"}}>
+    <Paper elevation={5} style={{ padding: 16 ,marginTop:"40px"}}>
       <Typography variant="h6" align="center" gutterBottom>
         Distribution of Data
       </Typography>
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data1} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
           <XAxis dataKey="range" />
           <YAxis />
           <Tooltip />

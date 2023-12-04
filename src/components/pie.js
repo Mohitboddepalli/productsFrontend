@@ -16,13 +16,17 @@ export default function BasicPie({ selectedMonth }) {
     };
 
     fetchData();
-  }, []);
+  }, [selectedMonth]);
+
+
 
   const formattedData = data.map((ele,index) => ({
     id:index,
     value: ele.items,
     label: ele.category,
   }));
+  console.log(formattedData,"djddj")
+
   return (
     <div style={{display:"flex",justifyContent:"center",marginTop:"40px"}}>
     <PieChart 

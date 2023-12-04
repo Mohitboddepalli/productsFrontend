@@ -8,7 +8,7 @@ import CardComponent from './components/card';
 function App() {
   const [data,setData]=useState([])
   const [page,setPage]=useState(0)
-  const [selectedMonth,setSelectedMonth]=useState(1)
+  const [selectedMonth,setSelectedMonth]=useState(3)
   const [totalProducts,setTotalProducts]=useState(0)
   const [searchParameter,setSearchParameter]=useState("")
   const getProducts=(offset)=>{
