@@ -16,6 +16,7 @@ function App() {
     .then(response => {
         setData(response?.data?.rows)
         setTotalProducts(response?.data?.total_pages?.count)
+        console.log(data,"produ")
     })
     .catch(error => {
         console.error('Error fetching data: ', error);
@@ -44,43 +45,37 @@ function App() {
     getProducts()
   },[selectedMonth,page,searchParameter])
 
-  const movieColumns = [
-    {
-      header: 'ID',
-      accessorKey: 'id',
-    },
-    {
-      header: 'Title',
-      accessorKey: 'title',
-    },
-    {
-      header: 'Description',
-      accessorKey: 'description',
-    },
-    {
-      header: 'Price',
-      accessorKey: 'price',
-    },
-    {
-      header: 'Category',
-      accessorKey: 'category',
-    },
-    {
-      header: 'Sold',
-      accessorKey: 'sold',
-    }
-  ]
+ 
+  
 
   return (
-    <>
-      <h1>React-table</h1>
-      <BasicTable data={data} columns={movieColumns} getNextPage={getNextPage} getPrevPage={getPrevPage} month={selectedMonth} handleMonthChange={handleMonthChange} totalProducts={totalProducts} page={page} updateSearchParameter={updateSearchParameter} searchParameter={searchParameter}/>
-      <CardComponent selectedMonth={selectedMonth}/>
-      <BarChartComponent selectedMonth={{ month:selectedMonth }}/>
+    
+    <div  >
+      <h1 style ={{textAlign:'center',fontFamily:"open sans"}}>Products - dashboard</h1>
+      <BasicTable data={data} getNextPage={getNextPage} getPrevPage={getPrevPage} month={selectedMonth} handleMonthChange={handleMonthChange} totalProducts={totalProducts} page={page} updateSearchParameter={updateSearchParameter} searchParameter={searchParameter}/>
+      <div style ={{display:"flex",justifyContent:"space-between"}}>
       <BasicPie selectedMonth={{ month:selectedMonth }} />
+      <CardComponent selectedMonth={selectedMonth}/></div>
+      <BarChartComponent selectedMonth={{ month:selectedMonth }}/>
 
-    </>
+
+      </div>
+   
+
+    
   )
 }
-
 export default App
+
+
+
+
+
+
+
+
+
+
+
+  
+  
