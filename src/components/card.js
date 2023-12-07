@@ -25,7 +25,7 @@ export default function CardComponent({selectedMonth}) {
     },[data])
   return (
     <div style={{display:"flex",justifyContent:"center",marginTop:"40px"}}>
-    <Card sx={{ width:500,backgroundColor:"yellow",textAlign:"center"}}>
+    <Card sx={{ width:500,backgroundColor:'#e6bedc',textAlign:"center"}}>
       <CardContent>
         <Typography sx={{ fontSize: 30 }} color="text.secondary" gutterBottom>
           Total sale &nbsp; {data[0]?.totalprice}
