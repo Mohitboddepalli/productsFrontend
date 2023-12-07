@@ -48,7 +48,7 @@ const BarChartComponent = ({selectedMonth}) => {
         Distribution of Data
       </Typography>
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }} style ={{backgroundColor:'#e6bedc'}}>
+        <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }} style ={{backgroundColor:"#e6bedc"}}>
           <XAxis dataKey="range" />
           <YAxis />
           <Tooltip />
